@@ -67,7 +67,14 @@ Custom property | Description | Default
          * @method _handleLogin
          */
         _handleLogin: function(login) {
-          return login.firebaseUrl + "inventory/" + login.userId;
+          if ((login !== null) && (typeof(login) !== "undefined")) {
+            if ((login.firebaseUrl !== null) && (typeof(login.firebaseUrl) !== "undefined")) {
+              if ((login.userId !== null) && (typeof(login.userId) !== "undefined")) {
+                return login.firebaseUrl + "inventory/" + login.userId;
+              }
+            }
+          }
+          return "";
         },
 
         /**
